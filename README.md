@@ -1,4 +1,5 @@
-# Hapi Mongoose Connector
+# Hapi Mongoose Connector [![Build Status](https://travis-ci.org/gergoerdosi/hapi-mongoose-connector.svg)](https://travis-ci.org/gergoerdosi/hapi-mongoose-connector)
+
 
 Mongoose connector plugin for the hapi framework.
 
