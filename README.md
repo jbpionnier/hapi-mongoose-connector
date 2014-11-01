@@ -22,7 +22,7 @@ var server = new Hapi.Server();
 var plugin = {
     plugin: HapiMongooseConnector,
     options: {
-        uri: '127.0.0.1:27020/test'
+        uri: '127.0.0.1:27017/test'
     }
 };
 
