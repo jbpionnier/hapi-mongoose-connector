@@ -25,7 +25,7 @@ describe('Connector', function () {
         var plugin = {
             plugin: HapiMongooseConnector,
             options: {
-                uri: 'mongodb://127.0.0.1:27017/test'
+                uri: '127.0.0.1:27017/test'
             }
         };
 
@@ -43,7 +43,7 @@ describe('Connector', function () {
         var plugin = {
             plugin: HapiMongooseConnector,
             options: {
-                uri: 'mongodb://127.0.0.1:27020/test'
+                uri: '127.0.0.1:27020/test'
             }
         };
 
