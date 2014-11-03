@@ -36,6 +36,23 @@ describe('Connector', function () {
         });
     });
 
+    it('throws an error when configuration is invalid', function (done) {
+
+        var server = new Hapi.Server();
+
+        var plugin = {
+            plugin: HapiMongooseConnector,
+            options: {}
+        };
+
+        server.pack.register(plugin, function (err) {
+
+            expect(err).to.exist();
+            expect(err.message).to.equal('uri is required');
+            done();
+        });
+    });
+
     it('throws an error when connection fails', function (done) {
 
         var server = new Hapi.Server();
