@@ -1,6 +1,6 @@
 {
   "name": "hapi-mongoose-connector",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Mongoose connector plugin for the hapi framework.",
   "main": "index.js",
   "scripts": {
