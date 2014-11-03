@@ -21,8 +21,11 @@
     "url": "https://github.com/gergoerdosi/hapi-mongoose-connector/issues"
   },
   "homepage": "https://github.com/gergoerdosi/hapi-mongoose-connector",
+  "dependencies": {
+    "joi": "^4.7.x"
+  },
   "peerDependencies": {
-    "mongoose": "^3.8.x"  
+    "mongoose": "^3.8.x"
   },
   "devDependencies": {
     "code": "1.x.x",
