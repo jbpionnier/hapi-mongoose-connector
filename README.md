@@ -18,15 +18,16 @@ var Hapi = require('hapi');
 var HapiMongooseConnector = require('hapi-mongoose-connector');
 
 var server = new Hapi.Server();
+server.connection();
 
 var plugin = {
-    plugin: HapiMongooseConnector,
+    register: HapiMongooseConnector,
     options: {
         uri: '127.0.0.1:27017/test'
     }
 };
 
-server.pack.register(plugin, function (err) {
+server.register(plugin, function (err) {
 
     ...
 });
