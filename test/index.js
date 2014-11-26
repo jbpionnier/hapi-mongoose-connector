@@ -21,15 +21,16 @@ describe('Connector', function () {
     it('connects to the server', function (done) {
 
         var server = new Hapi.Server();
+        server.connection();
 
         var plugin = {
-            plugin: HapiMongooseConnector,
+            register: HapiMongooseConnector,
             options: {
                 uri: '127.0.0.1:27017/test'
             }
         };
 
-        server.pack.register(plugin, function (err) {
+        server.register(plugin, function (err) {
 
             expect(err).to.not.exist();
             done();
@@ -39,13 +40,14 @@ describe('Connector', function () {
     it('throws an error when configuration is invalid', function (done) {
 
         var server = new Hapi.Server();
+        server.connection();
 
         var plugin = {
-            plugin: HapiMongooseConnector,
+            register: HapiMongooseConnector,
             options: {}
         };
 
-        server.pack.register(plugin, function (err) {
+        server.register(plugin, function (err) {
 
             expect(err).to.exist();
             expect(err.message).to.equal('uri is required');
@@ -56,15 +58,16 @@ describe('Connector', function () {
     it('throws an error when connection fails', function (done) {
 
         var server = new Hapi.Server();
+        server.connection();
 
         var plugin = {
-            plugin: HapiMongooseConnector,
+            register: HapiMongooseConnector,
             options: {
                 uri: '127.0.0.1:27020/test'
             }
         };
 
-        server.pack.register(plugin, function (err) {
+        server.register(plugin, function (err) {
 
             expect(err).to.exist();
             done();
