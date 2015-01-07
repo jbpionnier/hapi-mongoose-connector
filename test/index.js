@@ -33,7 +33,7 @@ describe('Connector', function () {
         server.register(plugin, function (err) {
 
             expect(err).to.not.exist();
-            done();
+            server.stop(done);
         });
     });
 
@@ -51,7 +51,7 @@ describe('Connector', function () {
 
             expect(err).to.exist();
             expect(err.message).to.equal('uri is required');
-            done();
+            server.stop(done);
         });
     });
 
@@ -70,7 +70,31 @@ describe('Connector', function () {
         server.register(plugin, function (err) {
 
             expect(err).to.exist();
-            done();
+            server.stop(done);
+        });
+    });
+
+    it('closes the connection when server stops', function (done) {
+
+        var server = new Hapi.Server();
+        server.connection();
+
+        var plugin = {
+            register: HapiMongooseConnector,
+            options: {
+                uri: '127.0.0.1:27017/test'
+            }
+        };
+
+        server.register(plugin, function (err) {
+
+            expect(err).to.not.exist();
+
+            server.stop(function () {
+
+                expect(Mongoose.connection.readyState).to.equal(0);
+                server.stop(done);
+            });
         });
     });
 });
