@@ -26,7 +26,7 @@
   },
   "peerDependencies": {
     "hapi": ">=8.x.x",
-    "mongoose": "^3.8.x"
+    "mongoose": ">=3.8.x"
   },
   "devDependencies": {
     "code": "1.x.x",
